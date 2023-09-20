@@ -27,5 +27,7 @@ tokio = { version = "1", features = ["rt-multi-thread"] }
 rand = { version = "0.8", default-features = false }
 rand_xoshiro = "0.6"
 sp-core-hashing = { version = "11", default-features = false }
+hex = { version = "0.4", default-features = false }
+hex-literal = "0.4"
 
 onchainquant-io = { path = "contracts/onchainquant/io" }

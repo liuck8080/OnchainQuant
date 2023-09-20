@@ -2,7 +2,7 @@
 
 use codec::{Decode, Encode};
 use gmeta::{In, InOut, Metadata};
-use gstd::prelude::*;
+use gstd::{prelude::*, ActorId};
 use scale_info::TypeInfo;
 
 #[derive(Default, Debug, Encode, Decode, TypeInfo)]
@@ -13,6 +13,13 @@ pub struct IOOnchainQuant {
     pub block_next: u32,
     pub action_id: u64,
 }
+#[derive(Debug, Clone, Encode, Decode, TypeInfo)]
+pub struct TokenInfo {
+    pub name: String,
+    // #[allow(dead_code)]
+    // decimals: u8,
+    pub program_id: ActorId,
+}
 
 #[derive(Encode, Decode, TypeInfo)]
 pub enum OcqAction {
@@ -20,6 +27,7 @@ pub enum OcqAction {
     Stop,
     Act,
     GasReserve,
+    RegisterToken(TokenInfo),
     Terminate,
 }
 
@@ -27,6 +35,7 @@ pub enum OcqAction {
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
 pub enum OcqEvent {
+    None,
     Start,
     Stop,
     Act,

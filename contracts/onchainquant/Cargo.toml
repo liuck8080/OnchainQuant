@@ -11,10 +11,14 @@ onchainquant-io.workspace = true
 rand.workspace = true
 rand_xoshiro.workspace = true
 sp-core-hashing.workspace = true
+hex.workspace = true
+hex-literal.workspace = true
+ft-io = {git="https://github.com/gear-foundation/dapps-fungible-token.git"}
 
 [build-dependencies]
 gear-wasm-builder.workspace = true
 onchainquant-io.workspace = true
 
 [dev-dependencies]
-gtest = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
+gtest.workspace = true
+
